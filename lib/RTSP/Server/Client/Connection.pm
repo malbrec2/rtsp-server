@@ -93,8 +93,8 @@ sub setup {
         $transport =~ m/client_port=(\d+)(?:\-(\d+))/smi;
 
     unless ($client_rtp_start_port) {
-        $self->warn("Failed to find client RTP start port in SETUP request");
-        return $self->bad_request;
+        $self->warn("Failed to find client RTP start port in SETUP request. Using default (554)");
+        $client_rtp_start_port = 554;
     }
 
     # register client with stream
